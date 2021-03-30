@@ -4,20 +4,30 @@ Bridge your webthings to MQTT. You can then set properties, execute actions and 
 
 ## Setup
 
+Install this addon through the addon list or clone it to `~/.webthingsio/addons/` using git.
+
+Then go to `Settings > Developer > Create local authorization`. Make sure that all devices are checked and that "monitor and control" is selected. Then click allow and copy the token from the first text field. Go to `Settings > Add-Ons > Macrozilla > Configure` and paste your token in the access token field, then click save.
+
+Please also make sure that you configure the URL of your MQTT broker. 
+
 ## Use
 
-| Intention | Command |
-| ------------- | ------------- |
-| Set the value of a property | Send the value to `webthings/{DEVICE_ID}/properties/{PROPERTY_NAME}/set` |
-| Execute an action | Send an empty string or the desired input to `webthings/{DEVICE_ID}/actions/{ACTION_NAME}/execute` |
-| Manually request a message about the value of a property (see next table) | Send an empty string to `webthings/{DEVICE_ID}/properties/{PROPERTY_NAME}/get` |
+You can send to the following topics:
 
 | Topic | Interpretation |
 | ------------- | ------------- |
-| `webthings/{DEVICE_ID}/properties/{PROPERTY_NAME}` | Value of property changed to the sent value |
-| `webthings/{DEVICE_ID}/actions/{ACTION_NAME}` | Action triggered. If an associaed input exists, this one is sent, else an empty string |
-| `webthings/{DEVICE_ID}/events/{EVENT_NAME}` | Event raised. If an associaed info exists, this one is sent, else an empty string |
-| `webthings/{DEVICE_ID}/connectState` | The connect state of the device changed. The new connect state is sent |
+| `webthings/{DEVICE_ID}/properties/{PROPERTY_NAME}/set` | Send the new value the property should be set to |
+| `webthings/{DEVICE_ID}/properties/{PROPERTY_NAME}/get` | Send an empty message in order to request the value of the property |
+| `webthings/{DEVICE_ID}/actions/{ACTION_NAME}/execute` | Send an empty message or the desired input in order to execute the action |
+
+You can receive from the following topics:
+
+| Topic | Interpretation |
+| ------------- | ------------- |
+| `webthings/{DEVICE_ID}/properties/{PROPERTY_NAME}` | Value of property changed to the received message |
+| `webthings/{DEVICE_ID}/actions/{ACTION_NAME}` | Action triggered. If an associaed input exists, it is the received message, else an empty string |
+| `webthings/{DEVICE_ID}/events/{EVENT_NAME}` | Event raised. If an associaed info exists, it is the received message, else an empty string |
+| `webthings/{DEVICE_ID}/connectState` | The connect state of the device changed. The received message is the new connect state |
 | `webthings/{DEVICE_ID}/connected` | The device was just connected |
 | `webthings/{DEVICE_ID}/disconnected` | The device was just disconnected |
 | `webthings/{DEVICE_ID}/deviceAdded` | The device was just added |
