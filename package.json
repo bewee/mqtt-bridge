@@ -1,0 +1,45 @@
+{
+  "name": "mqtt-bridge",
+  "display_name": "MQTT",
+  "version": "0.0.1",
+  "description": "Bridge your webthings to MQTT",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node generate-config-interfaces.js && tsc -p .",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bewee/mqtt-bridge.git"
+  },
+  "author": "bewee",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/bewee/mqtt-bridge/issues"
+  },
+  "homepage": "https://github.com/bewee/mqtt-bridge#readme",
+  "files": [
+    "LICENSE",
+    "manifest.json",
+    "lib/"
+  ],
+  "dependencies": {
+    "dnssd": "^0.4.1",
+    "mqtt": "^4.2.6",
+    "node-fetch": "^2.6.1",
+    "webthings-client": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/dnssd": "^0.4.1",
+    "@types/node": "^14.14.37",
+    "@types/node-fetch": "^2.5.8",
+    "@types/ws": "^7.4.0",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^7.23.0",
+    "gateway-addon": "^1.0.0",
+    "json-schema-to-typescript": "^10.1.3",
+    "typescript": "^4.2.3"
+  }
+}

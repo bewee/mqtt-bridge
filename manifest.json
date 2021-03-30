@@ -1,0 +1,50 @@
+{
+  "manifest_version": 1,
+  "id": "mqtt-bridge",
+  "name": "MQTT Bridge",
+  "short_name": "MQTT",
+  "version": "0.0.1",
+  "description": "Bridge your webthings to MQTT",
+  "homepage_url": "https://github.com/bewee/mqtt-bridge#readme",
+  "license": "MPL-2.0",
+  "author": "bewee",
+  "gateway_specific_settings": {
+    "webthings": {
+      "exec": "{nodeLoader} {path}",
+      "strict_min_version": "1.0.0",
+      "strict_max_version": "*",
+      "primary_type": "adapter"
+    }
+  },
+  "options": {
+    "default": {
+      "mqttbroker_url": "mqtt://127.0.0.1:1883"
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "webthingsclient_accessToken",
+        "mqttbroker_url"
+      ],
+      "properties": {
+        "webthingsclient_accessToken": {
+          "type": "string",
+          "title": "Access token",
+          "description": "required in order to communicate with devices"
+        },
+        "mqttbroker_url": {
+          "type": "string",
+          "title": "URL of the MQTT broker"
+        },
+        "mqttbroker_user": {
+          "type": "string",
+          "title": "Username for authentification against the MQTT broker"
+        },
+        "mqttbroker_password": {
+          "type": "string",
+          "title": "Password for authentification against the MQTT broker"
+        }
+      }
+    }
+  }
+}
