@@ -6,7 +6,7 @@ Bridge your webthings to MQTT. You can then set properties, execute actions and 
 
 Install this addon through the addon list or clone it to `~/.webthingsio/addons/` using git.
 
-Then go to `Settings > Developer > Create local authorization`. Make sure that all devices are checked and that "monitor and control" is selected. Then click allow and copy the token from the first text field. Go to `Settings > Add-Ons > Macrozilla > Configure` and paste your token in the access token field, then click save.
+Then go to `Settings > Developer > Create local authorization`. Make sure that all devices are checked and that "monitor and control" is selected. Then click allow and copy the token from the first text field. Go to `Settings > Add-Ons > MQTT Bridge > Configure` and paste your token in the access token field, then click save.
 
 Please also make sure that you configure the URL of your MQTT broker. 
 
