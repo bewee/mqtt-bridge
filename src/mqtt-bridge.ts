@@ -31,7 +31,7 @@ export class MqttBridge {
     webthingsClient.on('close', () => {
       console.log('WebthingsClient lost. Reconnecting in 1 second');
       delete this.webthingsClient;
-      setTimeout(this.setupWebthingsClient, 1000);
+      setTimeout(this.setupWebthingsClient.bind(this), 1000);
     });
     webthingsClient.on('propertyChanged', (device_id, property_name, value) => {
       this.mqttClient?.publish(
@@ -95,7 +95,7 @@ export class MqttBridge {
       }, 100);
     } catch (e) {
       console.warn(`Failed to connect WebthingsClient. Retrying in 1 second`);
-      setTimeout(this.setupWebthingsClient, 1000);
+      setTimeout(this.setupWebthingsClient.bind(this), 1000);
     }
   }
 
@@ -160,7 +160,7 @@ export class MqttBridge {
     mqttClient.on('close', () => {
       console.warn(`MQTT lost. Retrying in 1 second`);
       delete this.mqttClient;
-      setTimeout(this.setupMqttClient, 1000);
+      setTimeout(this.setupMqttClient.bind(this), 1000);
     });
     mqttClient.on('message', this.processMessage.bind(this));
   }
