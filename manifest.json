@@ -3,7 +3,7 @@
   "id": "mqtt-bridge",
   "name": "MQTT Bridge",
   "short_name": "MQTT",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bridge your webthings to MQTT",
   "homepage_url": "https://github.com/bewee/mqtt-bridge#readme",
   "license": "MPL-2.0",

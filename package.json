@@ -1,7 +1,7 @@
 {
   "name": "mqtt-bridge",
   "display_name": "MQTT",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bridge your webthings to MQTT",
   "main": "lib/index.js",
   "scripts": {
