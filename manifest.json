@@ -13,7 +13,7 @@
       "exec": "{nodeLoader} {path}",
       "strict_min_version": "1.0.0",
       "strict_max_version": "*",
-      "primary_type": "adapter"
+      "primary_type": "extension"
     }
   },
   "options": {
